@@ -1,3 +1,6 @@
-# hello-world
-My first git - hello world.
-Get the hang.
+# PowerShell blog
+First try on bloggin with GitHub.
+
+```Powershell
+Get-Help about_blogging
+```
