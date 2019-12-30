@@ -20,7 +20,7 @@ There are a lot of repositories where you can contribute. I choose to list these
 
 If you use PowerShell and you like it, chances are you have gained benefit from it. Why not give back? You may learn a thing or two on the way, and the PowerShell OSS community is very helpful and friendly too.
 
-## Seven ways to contribute
+## Ten ways to contribute
 
 ### 1. File a bug
 
@@ -62,7 +62,7 @@ To list all bugs, filter on the label ['Issue-Bug'](https://github.com/PowerShel
 You can comment in the issue whether or not you could repro it, and on which version of PowerShell. Always try to reproduce a bug on the latest version of PowerShell.
 Make sure you read the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md) and the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/).
 
-If a bug is reproducable, it can be tested and fixed. If a bug is not reproducable, more research may be needed. You may be able to help the filer of the bug with that.
+If a bug is reproducible, it can be tested and fixed. If a bug is not reproducable, more research may be needed. You may be able to help the filer of the bug with that.
 
 ### 3. Comment on language change proposals
 
@@ -146,7 +146,12 @@ With more examples, less typos, clearer wording, PowerShell can be easier to lea
 > - Know how to run tests
 > - Pester knowledge 
 
-<https://github.com/PowerShell/PowerShell/tree/master/test/powershell>
+Within the PowerShell project, many parts are tested automatically. A big part of that is done with Pester. See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell). 
+
+Many CmdLets could use beter or more extensive tests to check if they keep working correctly when someone would change them in the future. So the Pester tests for CmdLets are kind of a safeguard against regression. 
+
+For tips about how to use Pester within the PowerShell repo specifically, be sure to review this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
+
 
 ### 8. Write C# xUnit tests
 
