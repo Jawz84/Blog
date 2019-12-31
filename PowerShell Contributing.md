@@ -1,4 +1,4 @@
-# Seven ways of contributing to PowerShell OSS
+# Ten ways of contributing to PowerShell OSS
 
 ## How
 
@@ -6,11 +6,11 @@ You can contribute by lending your time and expertise. There are so many ways to
 
 ## Why this blog
 
-I found the documentation on how to contribute to PowerShell/PowerShell (which is [here](https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md)) a bit daunting. The more links I followed, the more detailed and complex everything got. At that point I felt I was not ready to contribute. I did contribute anyway eventually. But I realised there may be more people willing to contribute, but don't know where to start, and there does not seem to be a guide of how to start contributing to PowerShell in an easy way. Also there are more ways to contribute apart from contributing code.
+I found the documentation on how to contribute to PowerShell/PowerShell (which is [here](https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md)) a bit daunting. The more links I followed, the more detailed and complex everything got. At that point I felt I was not ready to contribute. I did contribute anyway eventually. And I realised there may be more people willing to contribute, but don't know where to start, and there does not seem to be a guide of how to start contributing to PowerShell in an easy way. Also there are more ways to contribute apart from contributing C# code.
 
 ## Where
 
-There are a lot of repositories where you can contribute. I choose to list these three, because here you can contribute to PowerShell most directly in my opinion:
+There are a lot of repositories where you can contribute. I choose to list these three, because here you can contribute to PowerShell itself most directly in my opinion:
 
 - Documentation and Get-Help files: <https://github.com/MicrosoftDocs/PowerShell-Docs>
 - Proposals about the language: <https://github.com/PowerShell/PowerShell-RFC>
@@ -18,7 +18,8 @@ There are a lot of repositories where you can contribute. I choose to list these
 
 ## Why contribute
 
-If you use PowerShell and you like it, chances are you have gained benefit from it. Why not give back? You may learn a thing or two on the way, and the PowerShell OSS community is very helpful and friendly too.
+If you use PowerShell and you like it, chances are you have gained benefit from it. Why not give back? You may learn a thing or two on the way, and the PowerShell OSS community is very helpful and friendly too. 
+If you would like a more thorough reasoning, I can recommend [Joel's blogpost on this](https://vexx32.github.io/2019/01/03/Contributing-Open-Source/).
 
 ## Ten ways to contribute
 
@@ -184,27 +185,21 @@ You will notice that it rebuilds pwsh binaries each time you use Start-PSPester.
 
 For specific tips about how to use Pester within the PowerShell repo, be sure to read this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
 
-Chunk your work in small git commits, and don't forget to git push the work on your branch every once in a while. When you are satisfied with your work, you can create a Pull Request. You can create a PR from your own GitHub on the branch you created for you work on this. It helps to reference your original Issue where you asked for guidance what to work on, use a '#' sign and put the number of your Issue behind it. Fill any fields the PR requests from you. 
+#### Submitting your contribution 
+
+Do small git commits while you work, and don't forget to git push the work on your branch every once in a while. When you are satisfied with your work, you can create a Pull Request. You can create a PR from your own GitHub on the branch you created for you work on this. It helps to reference your original Issue where you asked for guidance what to work on, use a '#' sign and put the number of your Issue behind it. Fill any fields the PR requests from you. 
 
 Once you have created a PR, the automated CI process will start to run. It will run ALL tests, on Windows, Linux and OSX. You can follow the status of the running tests in your PR. It takes around 20 minutes or so to finish. Every time you push a new commit to your branch that you created the PR from, it will trigger a new CI run. 
 
-Every Pull Request gets an assignee. A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question. Be patient - half of the work on the PowerShell repository is being done by volunteers, members of the community like you, who do this in their spare time. And staff members of the PowerShell team have all kinds of tasks assigned to them. 
+If you want to signal the maintainers that you are working on stuff, but are not ready yet, you can rename your PR to start with `WIP:` for Work In Progress. 
 
-### 8. Write C# xUnit tests
+Every Pull Request in the PowerShell repo gets an assignee. A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question. Be patient - half of the work on the PowerShell repository is being done by volunteers, members of the community like you who do this in their spare time. And staff members of the PowerShell team have all kinds of tasks assigned to them. 
 
-> Requires
-> 
-> - GitHub account
-> - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
-> - Git and some knowledge of it
-> - Knowledge of GitHub workflow (fork > clone > PR)
-> - Know how to run tests
-> - Knowledge of the xUnit framework
-> - C# knowledge
+Your work in the PR will be reviewed by two maintainers. They will ask you to change things here and there, maybe even about code you did not touch, _because, just like you, they love PowerShell_ and they want the best for the product. If you don't know what they mean, just say so, no worries. They are all very helpful and friendly people. It can take a few weeks for the whole review/finetuning process to complete. 
 
-<https://github.com/PowerShell/PowerShell/tree/master/test/xUnit>
+Once all the CI checks turn green, and your reviewers are satisfied, your PR will be merged and your test is added to the codebase, and will be run every time anyone uses the CI system inside the repo :-)
 
-### 9. Write C# code for PowerShell
+### 8. Write C# code for PowerShell
 
 > Requires
 > 
@@ -216,9 +211,25 @@ Every Pull Request gets an assignee. A person who you can ask for help when some
 > - An Integrated Development Environment that supports C#, like VSCode or Visual Studio.
 > - C# knowledge
 
-Pick an issue from the list, and let the mainainers know in a comment that you would like to take it on. 
-You will need to sign the 
+TODO
 
+- Pick an issue
+- let mainainers know you would like to take it on
+
+### 9. Write C# xUnit tests
+
+> Requires
+> 
+> - GitHub account
+> - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
+> - Git and some knowledge of it
+> - Knowledge of GitHub workflow (fork > clone > PR)
+> - Know how to run tests
+> - Knowledge of the xUnit framework
+> - C# knowledge
+
+TODO
+<https://github.com/PowerShell/PowerShell/tree/master/test/xUnit>
 
 ### 10. Write RFC's
 
@@ -229,8 +240,5 @@ You will need to sign the
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Firm understanding of PowerShell
 
-Anyone in the community can write a proposal as an RFC, and see what the committee and the community think.
-
-
-
-
+TODO
+Anyone in the community can write a proposal as an Request For Comments (RFC), and see what the committee and the community think.
