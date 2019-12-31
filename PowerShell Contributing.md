@@ -144,14 +144,51 @@ With more examples, less typos, clearer wording, PowerShell can be easier to lea
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Know how to run tests
+> - Pester 4.2 or higher
 > - Pester knowledge 
 
 Within the PowerShell project, many parts are tested automatically. A big part of that is done with Pester. See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell). 
 
-Many CmdLets could use beter or more extensive tests to check if they keep working correctly when someone would change them in the future. So the Pester tests for CmdLets are kind of a safeguard against regression. 
+Many CmdLets could use better or more extensive tests to check if they keep working correctly when someone would change them in the future. So the Pester tests for CmdLets are kind of a safeguard against regression. 
 
-For tips about how to use Pester within the PowerShell repo specifically, be sure to review this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
+#### How to start
 
+- Create an issue in the PowerShell repo, where you state that you would like to contribute Pester tests. Ask the maintainers if there are any specific CmdLets that could use improved tests. 
+- Fork the PowerShell repository to your own GitHub
+- Clone your fork of the PowerShell repo to your local machine
+- Create a new Git branch for your work
+- All Pester tests can be found in this folder:  
+  `.\test\powershell`
+- Tests for built-in CmdLets are here:  
+  `.\test\powershell\Modules`  
+  Especially the folders named `Microsoft.PowerShell.*`
+- Tests can also be found by using a search tool like VSCode's `Ctrl+F`. Just search for the CmdLet you are looking for, and filter for filenames with `*.tests.ps1`.
+
+#### How to run a test
+
+To run a test, you need to build the binaries first. And if you run all tests, that's going to take some time. Good thing there is an easy way!
+
+In the base of the repository there is a module 'build.ps1', that has all kind of handy CmdLets in it for this kind of thing. Load it like this:
+
+`Import-Module .\build.psm1`
+
+(If you want to know which tools are inside, use `Get-Command -Module build`)
+
+Now you can simply run `Start-PSPester` to kick of a build, and run ALL Pester tests. This will take some time, and this is not what you want to do when writing extra tests, or improving existing ones. So what do we do instead? We tell `Start-PSPester` which testfile we want to run:
+
+`Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1`
+
+You will notice that it rebuilds pwsh binaries each time you use Start-PSPester. This takes time, and since we are only writing Pester, and not editing the C# code, we only need to build pwsh binaries once. To suppress new builds, you add the `-SkipTestToolBuild` switch:
+
+`Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1 -SkipTestToolBuild`
+
+For specific tips about how to use Pester within the PowerShell repo, be sure to read this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
+
+Chunk your work in small git commits, and don't forget to git push the work on your branch every once in a while. When you are satisfied with your work, you can create a Pull Request. You can create a PR from your own GitHub on the branch you created for you work on this. It helps to reference your original Issue where you asked for guidance what to work on, use a '#' sign and put the number of your Issue behind it. Fill any fields the PR requests from you. 
+
+Once you have created a PR, the automated CI process will start to run. It will run ALL tests, on Windows, Linux and OSX. You can follow the status of the running tests in your PR. It takes around 20 minutes or so to finish. Every time you push a new commit to your branch that you created the PR from, it will trigger a new CI run. 
+
+Every Pull Request gets an assignee. A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question. Be patient - half of the work on the PowerShell repository is being done by volunteers, members of the community like you, who do this in their spare time. And staff members of the PowerShell team have all kinds of tasks assigned to them. 
 
 ### 8. Write C# xUnit tests
 
