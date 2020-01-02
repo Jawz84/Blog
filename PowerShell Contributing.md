@@ -180,7 +180,7 @@ You can use VSCode with the [C# extension](https://marketplace.visualstudio.com/
 
 #### Find code for a CmdLet
 
-There is a lot of code in PowerShell. So where do you find the code you need to edit in order to solve the issue you picked? If you are are looking for the code for a specific CmdLet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only *.cs files, but you would not find it. You will find if you search for 'Get, "Host' and filter *.cs files only. This is because Cmdlets names in C# are declared like this:
+There is a lot of code in PowerShell. So where do you find the code you need to edit in order to solve the issue you picked? If you are are looking for the code for a specific CmdLet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only \*.cs files, but you would not find it. You will find if you search for 'Get, "Host' and filter \*.cs files only. This is because Cmdlets names in C# are declared like this:
 
 ```C#
 [Cmdlet(VerbsCommon.Get, "Host", // abbreviated
