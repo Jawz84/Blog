@@ -241,7 +241,7 @@ The first time you have to initinalize a few options, like so:
 
 To start a test run for xUnit tests. It will output to the file with the name you have specified.
 
-### 10. Write RFC's
+### 10. Write an RFC
 
 > Requires
 > 
@@ -250,5 +250,14 @@ To start a test run for xUnit tests. It will output to the file with the name yo
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Firm understanding of PowerShell
 
-TODO
-Anyone in the community can write a proposal as an Request For Comments (RFC), and see what the committee and the community think.
+Anyone in the community can write a proposal as a Request For Comments (RFC), and see what the committee and the community think. 
+
+If you have an idea that is bigger than just an Issue, you can consider writing a proposal. Be sure to check the list of passed and rejected RFC's first. You can read about the process [here](https://github.com/PowerShell/PowerShell-RFC/blob/master/RFC0000-RFC-Process.md).
+
+Examples of past RFC's:
+
+- Experimental-Accepted: [Abbreviation expansion based tab completion](https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0030-Abbreviation-Expansion-TabComplete.md)
+- Experimental-Accepted: [https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0044-ForEach-Parallel-Cmdlet.md](https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0044-ForEach-Parallel-Cmdlet.md)
+- Final: [Obsoleting Send-MailMessage](https://github.com/PowerShell/PowerShell-RFC/blob/master/5-Final/RFC0042-Send-MailMessage.md)
+
+RFC's are discussed at the monthly community call, and are open for comments for about two months, or longer as the committee sees fit.
