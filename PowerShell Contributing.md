@@ -167,7 +167,7 @@ Many CmdLets could use better or more extensive tests to check if they keep work
 
 #### How to run a test
 
-To run a test, you need to build the binaries first. And if you run all tests, that's going to take some time. Good thing there is an easy way!
+To run a test, you need to build the pwsh binaries first, and you need the test-tool. Also note, if you run all tests, that's going to take some time. Good thing there is an easy way!
 
 In the base of the repository there is a module 'build.ps1', that has all kind of handy CmdLets in it for this kind of thing. Load it like this:
 
@@ -175,7 +175,11 @@ In the base of the repository there is a module 'build.ps1', that has all kind o
 
 (If you want to know which tools are inside, use `Get-Command -Module build`)
 
-Now you can simply run `Start-PSPester` to kick of a build, and run ALL Pester tests. This will take some time, and this is not what you want to do when writing extra tests, or improving existing ones. So what do we do instead? We tell `Start-PSPester` which testfile we want to run:
+The very fist time, you need to set up a few things. To do that, run `Start-PsBootstrap` (may need sudo/adminstrative privileges, depending on your system. On a docker container, it needs the `-NoSudo` switch).
+
+You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild`
+
+Now you could simply run `Start-PSPester` to kick off a build, and run ALL Pester tests. This would take some time, and this is still not what you want to do when writing extra tests, or improving existing ones. So what do we do instead? We tell `Start-PSPester` which testfile we want to run:
 
 `Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1`
 
@@ -211,10 +215,9 @@ Once all the CI checks turn green, and your reviewers are satisfied, your PR wil
 > - An Integrated Development Environment that supports C#, like VSCode or Visual Studio.
 > - C# knowledge
 
-TODO
+TODO: Lots of the same stuff as under Pester will need to go here too. Should I just refer to that, or should I split that info out as a separate chapter as a prerequisite to chapter 7, 8 and 9?
 
-- Pick an issue
-- let mainainers know you would like to take it on
+> Tip: If you encounter weird build errors, just run `Start-PSBuild -Clean`. This is generally a good idea every time you update your branch.
 
 ### 9. Write C# xUnit tests
 
@@ -230,6 +233,13 @@ TODO
 
 TODO
 <https://github.com/PowerShell/PowerShell/tree/master/test/xUnit>
+
+The first time you have to initinalize a few options, like so:
+`Get-PSOptions -DefaultToNew | Save-PSOptions` and then `Restore-PSOptions`. Then you can use
+
+`Start-PSxUnit -xUnitTestResultsFile ".\xunit.xml"`
+
+To start a test run for xUnit tests. It will output to the file with the name you have specified.
 
 ### 10. Write RFC's
 
