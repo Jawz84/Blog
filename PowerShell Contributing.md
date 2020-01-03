@@ -1,13 +1,5 @@
 # Ten ways of contributing to PowerShell OSS
 
-## How
-
-You can contribute by lending your time and expertise.
-There are so many ways to do so.
-Blogging, speaking, teaching, sharing code, writing modules, helping others on forums/channels to name a few.
-In this blog I want to focus on contributing to the PowerShell language directly.
-
-
 ## Why this blog
 
 I found the documentation on how to contribute to PowerShell/PowerShell (which is [here](https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md)) a bit daunting.
@@ -16,6 +8,13 @@ At that point I felt I was not ready to contribute.
 I did contribute anyway eventually.
 And I realised there may be more people willing to contribute, but don't know where to start, and there does not seem to be a guide of how to start contributing to PowerShell in an easy way.
 Also there are more ways to contribute apart from contributing C# code.
+
+## How
+
+You can contribute by lending your time and expertise.
+There are so many ways to do so.
+Blogging, speaking, teaching, sharing code, writing modules, helping others on forums/channels to name a few.
+In this blog I want to focus on contributing to the PowerShell language directly.
 
 ## Where
 
@@ -123,8 +122,7 @@ You can find the join link, as well as transcripts/youtube recordings of previou
 
 Goal of the meeting is sharing roadmap/release info, and discussing RFC's.
 You can join in, ask questions and let your voice be heard.
-Eg.
-if there is an RFC you have commented on, you can explain your view.
+Eg. if there is an RFC you have commented on, you can explain your view.
 
 
 ### 5. Suggest an improvement
@@ -137,7 +135,7 @@ You can also come up with ideas yourself!
 
 If you have a cool improvement for a cmdlet, a new feature or just a great idea, you can submit it as a [feature request](https://github.com/PowerShell/PowerShell/issues/new?assignees=&labels=Issue-Enhancement&template=Feature_Request.md&title=Feature+Request).
 
-The maintainers will look at your idea and let you know what they think! All genuine feature requests are handled with respect.
+The maintainers will look at your idea and let you know what they think. All genuine feature requests are handled with respect.
 So don't be afraid to share your thoughts! 
 
 Do take the time to find out if your idea has been proposed before and what was decided and why.
