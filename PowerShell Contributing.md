@@ -52,8 +52,8 @@ This is what you will be asked for when filing a bug:
 - Refer to the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-7).
 - List steps to reproduce the bug
 - Explain what you expected to happen
-- Tell what actually happened instead
-- Paste in relevant environment info: output of $PSVersionTable and if any, the errormessage.
+- Describe what actually happened instead
+- Paste in relevant environment info: output of `$PSVersionTable` and if any, the error message.
 
 When in doubt, just share what you encountered to check if it's a bug in PowerShell or not.
 Good places to share are:
@@ -68,8 +68,8 @@ Good places to share are:
 > 
 > - GitHub account
 
-Confirming bugs is going through bug issues and try if you can reproduce the bug too.
-This helps assess if a bug is really a bug or not.
+Confirming bugs is going through recent bug report issues and trying to reproduce the bug.
+This helps assess if a reported bug is really a bug or not.
 
 To list all bugs, filter on the label ['Issue-Bug'](https://github.com/PowerShell/PowerShell/issues?q=is%3Aissue+is%3Aopen+label%3AIssue-Bug)
 
@@ -78,8 +78,8 @@ Always try to reproduce a bug on the latest version of PowerShell.
 Make sure you read the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md) and the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/).
 
 If a bug is reproducible, it can be tested and fixed.
-If a bug is not reproducable, more research may be needed.
-You may be able to help the filer of the bug with that.
+If a bug is not reproducible, more research may be needed.
+You may be able to help the user who filed the bug with that.
 
 > Tip: consider 'Watching' the github repo.
 You'll get a feel for what is going on daily.
@@ -91,17 +91,17 @@ You'll get a feel for what is going on daily.
 > - GitHub account
 
 Bigger changes or more complicated features/ideas go through the Request For Change (RFC) process.
-Anyone can submit a prosal and  request comments from the community and the team.
+Anyone can submit a proposal and  request comments from the community and the PowerShell team.
 Typically, an RFC will remain open for two months, to give everyone the opportunity to comment.
-Then the Committee will then make a decision on the subject.
+At this point, the PowerShell Committee will make the decision to approve or reject the RFC.
 
-The RFC may be discussed in the monthly call if there is reason to.
+The RFC may also be discussed in the monthly call if there is reason to.
 
 
 The full process is explained here: <https://github.com/PowerShell/powershell-rfc/blob/master/RFC0000-RFC-Process.md>
 
 By commenting on an RFC, you can influence how an idea is going to be implemented, if at all.
-Comments are valueable for the community and the committee to make a balanced decision, weighing all voices.
+Comments are valuable for the community and the committee to make a balanced decision, weighing all voices.
 
 ### 4. Attend the monthly PowerShell community call
 
@@ -122,7 +122,7 @@ You can find the join link, as well as transcripts/youtube recordings of previou
 
 Goal of the meeting is sharing roadmap/release info, and discussing RFC's.
 You can join in, ask questions and let your voice be heard.
-Eg. if there is an RFC you have commented on, you can explain your view.
+For example, if there is an RFC you have commented on, you can explain your view.
 
 
 ### 5. Suggest an improvement
@@ -135,7 +135,8 @@ You can also come up with ideas yourself!
 
 If you have a cool improvement for a cmdlet, a new feature or just a great idea, you can submit it as a [feature request](https://github.com/PowerShell/PowerShell/issues/new?assignees=&labels=Issue-Enhancement&template=Feature_Request.md&title=Feature+Request).
 
-The maintainers will look at your idea and let you know what they think. All genuine feature requests are handled with respect.
+The maintainers will look at your idea and let you know what they think.
+All genuine feature requests are handled with respect.
 So don't be afraid to share your thoughts! 
 
 Do take the time to find out if your idea has been proposed before and what was decided and why.
@@ -156,13 +157,13 @@ In some cases it may be a good move to 'test' your idea against a few people fir
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 
-You can contribute by writing, improving, expanding help files.
+You can contribute by writing, improving, or expanding help files.
 The ones that are used by Get-Help.
-Especially more examples for cmdlets are always welcome.
+In particular, more examples for cmdlets are always welcome.
 
-Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [contributing manual](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md)
+Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [contributing manual](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md) to get started.
 
-To do small contributions like typos, just navigate to that file, click the 'Edit' button, and GitHub will create a copy (fork) on your own GitHub for you.
+To do small contributions like correcting typos, just navigate to that file, click the 'Edit' button, and GitHub will create a copy (fork) on your own GitHub for you.
 When you are satisfied with your changes, you can save them, and submit a pull request to the _staging_ branch of the PowerShell-Docs repository.
 
 
@@ -189,7 +190,7 @@ A big part of that is done with Pester.
 See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell).
 
 
-Many CmdLets could use better or more extensive tests to check if they keep working correctly when someone would change them in the future.
+Many Cmdlets could use better or more extensive tests to verify they keep working correctly if someone changes them in the future.
 So the Pester tests for CmdLets are kind of a safeguard against regression.
 When there are more/better tests for CmdLets, you can possibly prevent future bugs!
 
@@ -207,7 +208,7 @@ See also "Details about contributing to the PowerShell/PowerShell repo", especia
 > - An Integrated Development Environment that supports C#, like VSCode or Visual Studio.
 > - C# knowledge
 
-Well, duh :) When you solve an issue from the PowerShell/PowerShell repo by submitting code, you can make people's lives easier! 
+When you solve an issue from the PowerShell/PowerShell repo by submitting code, you can make people's lives easier! 
 
 Depending on your level of C# knowledge and experience, pick an issue that suits you, and let others know by commenting on the issue, that you would like to take it on.
 
