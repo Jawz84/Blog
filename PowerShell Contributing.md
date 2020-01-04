@@ -2,7 +2,7 @@
 
 ## Why this blog
 
-I found the documentation on how to contribute to PowerShell/PowerShell (which is [here](https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md)) a bit daunting.
+I found [the documentation](https://github.com/PowerShell/PowerShell/blob/master/.github/CONTRIBUTING.md) on how to contribute to PowerShell/PowerShell a bit daunting.
 The more links I followed, the more detailed and complex everything got.
 At that point I felt I was not ready to contribute.
 I did contribute anyway eventually.
@@ -47,20 +47,24 @@ File that bug right here: <https://github.com/PowerShell/PowerShell/issues>
 This is what you will be asked for when filing a bug:
 
 - Make sure you are able to reproduce it on the [latest released version](https://github.com/PowerShell/PowerShell/releases)
-- Search the [existing issues](https://github.com/PowerShell/PowerShell/issues).
-- Refer to the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md).
-- Refer to the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-7).
+- Search the [existing issues](https://github.com/PowerShell/PowerShell/issues)
+- Refer to the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md)
+- Refer to the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-7)
 - List steps to reproduce the bug
 - Explain what you expected to happen
 - Describe what actually happened instead
-- Paste in relevant environment info: output of `$PSVersionTable` and if any, the error message.
+- Paste in relevant environment info: output of `$PSVersionTable` and if any, the error message
 
 When in doubt, just share what you encountered to check if it's a bug in PowerShell or not.
 Good places to share are:
 
 - [Twitter](https://www.twitter.com), tag your tweet with #pshelp
-- The [PowerShell Discord/Slack/IRC channel](http://poshcode.org/)
+- The [PowerShell Discord channel](https://aka.ms/psdiscord)\*
+- The [PowerShell Slack channel](https://aka.ms/psslack)\*
+- The [PowerShell IRC channel](https://poshcode.org/#irc)\*
 - The [PowerShell/PowerShell Gitter channel](https://gitter.im/PowerShell/PowerShell)
+
+\*) Discord, Slack and IRC are bridged via a channel called #Bridge. Read more about this on <poshcode.org>.
 
 ### 2. Help confirm bugs
 
@@ -133,7 +137,7 @@ For example, if there is an RFC you have commented on, you can explain your view
 
 You can also come up with ideas yourself!
 
-If you have a cool improvement for a cmdlet, a new feature or just a great idea, you can submit it as a [feature request](https://github.com/PowerShell/PowerShell/issues/new?assignees=&labels=Issue-Enhancement&template=Feature_Request.md&title=Feature+Request).
+If you have a cool improvement for a Cmdlet, a new feature or just a great idea, you can submit it as a [feature request](https://github.com/PowerShell/PowerShell/issues/new?assignees=&labels=Issue-Enhancement&template=Feature_Request.md&title=Feature+Request).
 
 The maintainers will look at your idea and let you know what they think.
 All genuine feature requests are handled with respect.
@@ -143,7 +147,7 @@ Do take the time to find out if your idea has been proposed before and what was 
 You can filter on the label 'Issue-Enhancement'.
 
 
-In some cases it may be a good move to 'test' your idea against a few people first, before taking the time to fully explain what you have in mind in an issue, a great place to do so would be the [PowerShell Discord/Slack/IRC channel](link required).
+In some cases it may be a good move to 'test' your idea against a few people first, before taking the time to fully explain what you have in mind in an issue, a great place to do so would be the [PowerShell Discord/Slack/IRC channel](https://poshcode.org).
 
 ### 6. Contribute Help content
 
@@ -194,7 +198,7 @@ Many Cmdlets could use better or more extensive tests to verify they keep workin
 So the Pester tests for CmdLets are kind of a safeguard against regression.
 When there are more/better tests for CmdLets, you can possibly prevent future bugs!
 
-See also "Details about contributing to the PowerShell/PowerShell repo", especially the section on how to run tests.
+See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo), especially the section on how to run tests.
 
 ### 8. Write C# code for PowerShell
 
@@ -205,7 +209,7 @@ See also "Details about contributing to the PowerShell/PowerShell repo", especia
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Pester knowledge/know how to run test suite
-> - An Integrated Development Environment that supports C#, like VSCode or Visual Studio.
+> - An Integrated Development Environment that supports C#, like VSCode or Visual Studio
 > - C# knowledge
 
 When you solve an issue from the PowerShell/PowerShell repo by submitting code, you can make people's lives easier! 
@@ -222,10 +226,10 @@ That worked well for me.
 You can use VSCode with the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), or you can use any version of Visual Studio.
 
 
-#### Find code for a CmdLet
+#### Find code for a Cmdlet
 
 There is a lot of code in PowerShell.
-So where do you find the code you need to edit in order to solve the issue you picked? If you are are looking for the code for a specific CmdLet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only \*.cs files, but you would not find it.
+So where do you find the code you need to edit in order to solve the issue you picked? If you are are looking for the code for a specific Cmdlet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only \*.cs files, but you would not find it.
 You will find if you search for 'Get, "Host' and filter \*.cs files only.
 This is because Cmdlets names in C# are declared like this:
 
@@ -238,16 +242,16 @@ This is because Cmdlets names in C# are declared like this:
 There are quite a few similarities between PowerShell advanced functions and how CmdLets need to be written in C#.
 For example, the way parameters and parametersets are defined, and that there can be a Begin{} Process{} and End {} block.
 
-When you have C# experience, but have never written code for PowerShell, you should see the SDK reference [here](https://docs.microsoft.com/en-us/powershell/scripting/developer/cmdlet/writing-a-windows-powershell-cmdlet?view=powershell-7) to learn about concepts and find examples.
+When you have C# experience, but have never written code for PowerShell, you should see the SDK reference [here](https://docs.microsoft.com/en-us/powershell/scripting/developer/Cmdlet/writing-a-windows-powershell-Cmdlet?view=powershell-7) to learn about concepts and find examples.
 
 When you have little C# experience, but have written advanced PowerShell functions, you can still find your way.
-When reading through the code, your starting point should be the `[CmdLet()]` Attribute.
+When reading through the code, your starting point should be the `[Cmdlet()]` Attribute.
 This is where parameters will be declared, just like in PowerShell.
 And you will notice C# CmdLets have `BeginProcessing`, `ProcessRecord` and `EndProcessing` instead of the `Begin`, `Process` and `End` block.
 After you have a little idea of what that looks like, find answers to questions that arise in the SDK linked above.
 
 
-See also "Details about contributing to the PowerShell/PowerShell repo".
+See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo).
 
 ### 9. Write C# xUnit tests
 
@@ -279,7 +283,7 @@ If that is all set, you can start a test run for xUnit tests:
 
 It will output to the file with the name you have specified to the folder `.\test\xUnit`, in xUnit format.
 
-See also "Details about contributing to the PowerShell/PowerShell repo".
+See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo).
 
 ### 10. Write an RFC
 
@@ -309,19 +313,20 @@ RFC's are discussed at the monthly community call, and are open for comments for
 
 ### How to start
 
-- Create an issue in the PowerShell repo, where you state that you would like to contribute Pester tests.
-Ask the maintainers if there are any specific CmdLets that could use improved tests.
-
+- Create an issue in the PowerShell repo, where you state that you would like to contribute Pester tests
+- Ask the maintainers if there are any specific CmdLets that could use improved tests
 - Fork the PowerShell repository to your own GitHub
 - Clone your fork of the PowerShell repo to your local machine
 - Create a new Git branch for your work
-- All Pester tests can be found in this folder:  
+
+All Pester tests can be found in this folder:  
   `.\test\powershell`
-- Tests for built-in CmdLets are here:  
-  `.\test\powershell\Modules`  
+
+Tests for built-in CmdLets are here:  
+  `.\test\powershell\Modules`
   Especially the folders named `Microsoft.PowerShell.*`
-- Tests can also be found by using a search tool like VSCode's `Ctrl+F`.
-Just search for the CmdLet you are looking for, and filter for filenames with `*.tests.ps1`.
+
+Tests can also be found by using a search tool like VSCode's `Ctrl+F`. Just search for the Cmdlet you are looking for, and filter for filenames with `*.tests.ps1`
 
 > Tip: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
 Also: <ohshitgit.com> for help after a git mishap.
