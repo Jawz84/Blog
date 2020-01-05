@@ -36,7 +36,7 @@ If you would like a more thorough reasoning, I can recommend [Joel's blogpost on
 
 ### 1. File a bug
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 
@@ -68,14 +68,15 @@ Good places to share are:
 
 ### 2. Help confirm bugs
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 
 Confirming bugs is going through recent bug report issues and trying to reproduce the bug.
 This helps assess if a reported bug is really a bug or not.
 
-To list all bugs, filter on the label ['Issue-Bug'](https://github.com/PowerShell/PowerShell/issues?q=is%3Aissue+is%3Aopen+label%3AIssue-Bug)
+A lot of new bug reports are going to have the ['Issue-Discussion'](https://github.com/PowerShell/PowerShell/issues?q=is%3Aissue+is%3Aopen+label%3AIssue-Discussion) label, instead of 'Issue-Bug'. 
+This is because when you first open an issue on the PowerShell project, the automatic label for a bug report is Issue-Discussion, which typically won't be changed until a maintainer or collaborator has seen that the bug has been confirmed / reproduced by others or can reproduce it themselves.
 
 You can comment in the issue whether or not you could repro it, and on which version of PowerShell.
 Always try to reproduce a bug on the latest version of PowerShell.
@@ -85,17 +86,23 @@ If a bug is reproducible, it can be tested and fixed.
 If a bug is not reproducible, more research may be needed.
 You may be able to help the user who filed the bug with that.
 
-> Tip: consider 'Watching' the github repo.
+> :information_source: Consider 'Watching' the github repo.
 You'll get a feel for what is going on daily.
 
 ### 3. Comment on language change proposals
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 
-Bigger changes or more complicated features/ideas go through the Request For Change (RFC) process.
-Anyone can submit a proposal and  request comments from the community and the PowerShell team.
+The following things currently require an RFC:
+
+- Large-scale changes to cmdlets
+- **Any** changes to core language features
+- New language features
+- Deprecation of outdated features
+
+Anyone can submit a proposal and  request comments from the community and the PowerShell Team.
 Typically, an RFC will remain open for two months, to give everyone the opportunity to comment.
 At this point, the PowerShell Committee will make the decision to approve or reject the RFC.
 
@@ -109,7 +116,7 @@ Comments are valuable for the community and the committee to make a balanced dec
 
 ### 4. Attend the monthly PowerShell community call
 
-> Requires
+> :memo: Requires
 > 
 > - A microphone and speakers
 > - You can even join anonymously if you like 
@@ -120,7 +127,7 @@ Comments are valuable for the community and the committee to make a balanced dec
 > - A headset
 > - A camera
 
-Every month, there is a call with PowerShell team members (committee) and community members are invited! 
+Every month, there is a call with PowerShell Team members and community members are invited! 
 You can find the join link, as well as transcripts/youtube recordings of previous calls here: 
 <https://github.com/PowerShell/PowerShell-RFC/tree/master/CommunityCall/>
 
@@ -128,10 +135,9 @@ Goal of the meeting is sharing roadmap/release info, and discussing RFC's.
 You can join in, ask questions and let your voice be heard.
 For example, if there is an RFC you have commented on, you can explain your view.
 
-
 ### 5. Suggest an improvement
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 
@@ -151,7 +157,7 @@ In some cases it may be a good move to 'test' your idea against a few people fir
 
 ### 6. Contribute Help content
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 > - Knowledge of Markdown
@@ -161,15 +167,15 @@ In some cases it may be a good move to 'test' your idea against a few people fir
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 
-You can contribute by writing, improving, or expanding help files.
-The ones that are used by Get-Help.
+You can contribute by writing, improving, or expanding help files for Get-Help.
 In particular, more examples for cmdlets are always welcome.
 
 Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [contributing manual](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md) to get started.
 
+> :information_source: PowerShell Help is maintained for PowerShell versions 5.1 and higher. You may be asked to update help files for more than one version. 
+
 To do small contributions like correcting typos, just navigate to that file, click the 'Edit' button, and GitHub will create a copy (fork) on your own GitHub for you.
 When you are satisfied with your changes, you can save them, and submit a pull request to the _staging_ branch of the PowerShell-Docs repository.
-
 
 For bigger contributions, you are better off cloning your fork locally to your computer.
 This enables you to use VSCode and other editing tools.
@@ -179,20 +185,22 @@ With more examples, less typos, clearer wording, PowerShell can be easier to lea
 
 ### 7. Write Pester tests
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Know how to run tests
-> - Pester 4.2 or higher
+> - Pester 4.8 or higher 
 > - Pester knowledge 
 
 Within the PowerShell project, many parts are tested automatically.
 A big part of that is done with Pester.
 See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell).
 
+> :information_source: At the time of writing, Pester version 4.8.0 is used in the PowerShell project [`build.psm1` module](https://github.com/PowerShell/PowerShell/blob/a335063f1cb6596636031c2dc064fdf29924c5a7/build.psm1#L666).
+This version pin will change in the future, as new versions of Pester become available.  
 
 Many Cmdlets could use better or more extensive tests to verify they keep working correctly if someone changes them in the future.
 So the Pester tests for CmdLets are kind of a safeguard against regression.
@@ -202,7 +210,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 ### 8. Write C# code for PowerShell
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
@@ -234,13 +242,13 @@ You will find if you search for 'Get, "Host' and filter \*.cs files only.
 This is because Cmdlets names in C# are declared like this:
 
 ```C#
-[Cmdlet(VerbsCommon.Get, "Host", // abbreviated
+[Cmdlet(VerbsCommon.Get, "Host" /* abbreviated */ )]
 ```
 
 #### Similarities between advanced functions and C# CmdLets
 
 There are quite a few similarities between PowerShell advanced functions and how CmdLets need to be written in C#.
-For example, the way parameters and parametersets are defined, and that there can be a Begin{} Process{} and End {} block.
+For example, the way parameters and parametersets are defined, and that there can be a `Begin`, `Process` and `End` block.
 
 When you have C# experience, but have never written code for PowerShell, you should see the SDK reference [here](https://docs.microsoft.com/en-us/powershell/scripting/developer/Cmdlet/writing-a-windows-powershell-Cmdlet?view=powershell-7) to learn about concepts and find examples.
 
@@ -255,7 +263,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 ### 9. Write C# xUnit tests
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
@@ -267,7 +275,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 Only a small portion of all tests in the PowerShell/PowerShell repo are xUnit tests.
 Most other tests are written in Pester.
-Be sure to contact the PowerShell team if you want to contribute here.
+Be sure to contact the PowerShell Team if you want to contribute here.
 Most of the xUnit tests test internal PowerShell stuff.
 
 The xUnit tests can be found here: 
@@ -287,27 +295,32 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 ### 10. Write an RFC
 
-> Requires
+> :memo: Requires
 > 
 > - GitHub account
 > - Git and some knowledge of it
 > - Knowledge of GitHub workflow (fork > clone > PR)
 > - Firm understanding of PowerShell
 
-Anyone in the community can write a proposal as a Request For Comments (RFC), and see what the committee and the community think.
+Anyone in the community can write a proposal as a [Request For Comments](https://github.com/PowerShell/PowerShell-RFC) (RFC), and see what the committee and the community think.
 
+If you have an idea that is bigger than just an Issue, you can consider writing a proposal. The first step to that is to file a feature request-type issue, so that the PowerShell Team can gauge whether there's interest in the requested change and there's an opportunity to hammer out a fairly well-rounded first draft.
+This is because RFCs tend to be longer-form documents, and it can get rather lengthy to review them if changes constantly need to be hashed out during the review process.
 
-If you have an idea that is bigger than just an Issue, you can consider writing a proposal.
 Be sure to check the list of passed and rejected RFC's first.
 You can read about the process [here](https://github.com/PowerShell/PowerShell-RFC/blob/master/RFC0000-RFC-Process.md).
 
 Examples of past RFC's:
 
 - Experimental-Accepted: [Abbreviation expansion based tab completion](https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0030-Abbreviation-Expansion-TabComplete.md)
-- Experimental-Accepted: [https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0044-ForEach-Parallel-Cmdlet.md](https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0044-ForEach-Parallel-Cmdlet.md)
+- Experimental-Accepted: [ForEach-Object -Parallel Cmdlet](https://github.com/PowerShell/PowerShell-RFC/blob/master/4-Experimental-Accepted/RFC0044-ForEach-Parallel-Cmdlet.md)
 - Final: [Obsoleting Send-MailMessage](https://github.com/PowerShell/PowerShell-RFC/blob/master/5-Final/RFC0042-Send-MailMessage.md)
 
 RFC's are discussed at the monthly community call, and are open for comments for about two months, or longer as the committee sees fit.
+
+> :information_source: The Committee and the PowerShell Team members are separate; currently all Committee members are either current or past members of the PowerShell Team, but not everyone on the team is on the Committee. 
+There is a desire to work out a process for adding community members to the Committee at some point in the future.
+
 
 ## Details about contributing to the PowerShell/PowerShell repo
 
@@ -328,7 +341,7 @@ Tests for built-in CmdLets are here:
 
 Tests can also be found by using a search tool like VSCode's `Ctrl+F`. Just search for the Cmdlet you are looking for, and filter for filenames with `*.tests.ps1`
 
-> Tip: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
+> :information_source: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
 Also: <ohshitgit.com> for help after a git mishap.
 
 ### How to run a test
@@ -350,7 +363,7 @@ On a docker container, it needs the `-NoSudo` switch).
 
 You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild`
 
-> Tip: If you encounter weird build errors, just run `Start-PSBuild -Clean`.
+> :information_source: If you encounter weird build errors, just run `Start-PSBuild -Clean`.
 This is generally a good idea every time you update your branch, or after a rebase.
 
 Now you could simply run `Start-PSPester` to kick off a build, and run ALL Pester tests.
@@ -392,7 +405,7 @@ If you want to signal the maintainers that you are working on stuff, but are not
 Every Pull Request in the PowerShell repo gets an assignee.
 A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question.
 Be patient - half of the work on the PowerShell repository is being done by volunteers, members of the community like you who do this in their spare time.
-And staff members of the PowerShell team have all kinds of tasks assigned to them.
+And staff members of the PowerShell Team have all kinds of tasks assigned to them.
 
 
 Your work in the PR will be reviewed by two maintainers.
