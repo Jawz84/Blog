@@ -1,4 +1,4 @@
-# Ten ways of contributing to PowerShell OSS
+# Ten ways of contributing to PowerShell :octocat: OSS
 
 ## Why this blog
 
@@ -108,7 +108,6 @@ At this point, the PowerShell Committee will make the decision to approve or rej
 
 The RFC may also be discussed in the monthly call if there is reason to.
 
-
 The full process is explained here: <https://github.com/PowerShell/powershell-rfc/blob/master/RFC0000-RFC-Process.md>
 
 By commenting on an RFC, you can influence how an idea is going to be implemented, if at all.
@@ -151,7 +150,6 @@ So don't be afraid to share your thoughts!
 
 Do take the time to find out if your idea has been proposed before and what was decided and why.
 You can filter on the label 'Issue-Enhancement'.
-
 
 In some cases it may be a good move to 'test' your idea against a few people first, before taking the time to fully explain what you have in mind in an issue, a great place to do so would be the [PowerShell Discord/Slack/IRC channel](https://poshcode.org).
 
@@ -224,15 +222,12 @@ When you solve an issue from the PowerShell/PowerShell repo by submitting code, 
 
 Depending on your level of C# knowledge and experience, pick an issue that suits you, and let others know by commenting on the issue, that you would like to take it on.
 
-
 > I picked a very small [issue](https://github.com/PowerShell/PowerShell/pull/9901), adding a `-Raw` switch to `Select-String`, because I did not know what to expect from the process, and from the code.
 That worked well for me.
-
 
 #### Editor
 
 You can use VSCode with the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), or you can use any version of Visual Studio.
-
 
 #### Find code for a Cmdlet
 
@@ -258,6 +253,14 @@ This is where parameters will be declared, just like in PowerShell.
 And you will notice C# CmdLets have `BeginProcessing`, `ProcessRecord` and `EndProcessing` instead of the `Begin`, `Process` and `End` block.
 After you have a little idea of what that looks like, find answers to questions that arise in the SDK linked above.
 
+#### Finding your way in the code
+
+If you are not super familiar with C# these tips may help you: 
+
+- When you are working on a Cmdlet, you can set _breakpoints_ to be able to step through the code
+- When you need information about where a certain method, property or variable comes from, use `F12` to [navigate to its definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-definition) 
+
+> :information_source: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019. The same principles work for the C# extension, as well as for Visual Studio.
 
 See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo).
 
@@ -283,7 +286,6 @@ The xUnit tests can be found here:
 
 If you want to use the tools from the `.\build.psm1` module, you may have to initialize a few options, like so:
 `Get-PSOptions -DefaultToNew | Save-PSOptions` and then `Restore-PSOptions`.
-
 
 If that is all set, you can start a test run for xUnit tests:
 
@@ -321,7 +323,6 @@ RFC's are discussed at the monthly community call, and are open for comments for
 > :information_source: The Committee and the PowerShell Team members are separate; currently all Committee members are either current or past members of the PowerShell Team, but not everyone on the team is on the Committee. 
 There is a desire to work out a process for adding community members to the Committee at some point in the future.
 
-
 ## Details about contributing to the PowerShell/PowerShell repo
 
 ### How to start
@@ -343,6 +344,31 @@ Tests can also be found by using a search tool like VSCode's `Ctrl+F`. Just sear
 
 > :information_source: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
 Also: <ohshitgit.com> for help after a git mishap.
+
+### Alternative: develop within a container
+
+VSCode has an extension for working in developement containers. 
+The PowerShell repo supports that. 
+If you use this, the repository will be opened in a Docker container on your system, and all necessary components will be inside the container. 
+VSCode will connect to that container and you can work with it from there.
+
+You will need:
+
+- [Docker](https://www.docker.com/products/docker-desktop), configure a shared folder
+- VSCode [remote-development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+
+Read more [here](https://code.visualstudio.com/docs/remote/remote-overview).
+
+The first time, it will ask you to install recommended VSCode extensions, and loading the project may fail because of the missing extensions. 
+
+- Install the recommended extensions and reload
+- If VSCode tells you 'There are unresolved dependencies.' Click `Restore`
+
+Now your environment should be all set.
+
+- The terminal defaults to Bash. To start PowerShell, simply type `pwsh` 
+- You can now load the `build.psm1` module with `Import-Module ./build.psm1` 
+- In some cases you may need to run `Start-PSBuild -Clean`
 
 ### How to run a test
 
@@ -372,16 +398,46 @@ So what do we do instead? We tell `Start-PSPester` which testfile we want to run
 
 `Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1`
 
-You will notice that it rebuilds pwsh binaries each time you use Start-PSPester.
-This takes time, and since we are only writing Pester, and not editing the C# code, we only need to build pwsh binaries once.
+You will notice that it rebuilds test tool binaries each time you use Start-PSPester.
+This takes time and usually we only need to build these binaries once.
 To suppress new builds, you add the `-SkipTestToolBuild` switch:
 
 `Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1 -SkipTestToolBuild`
 
 When writing and debugging your tests, remember that you can set breakpoints and step through your Pester code, this can help you find out where things are not going as they | Should -Be :-).
-If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019.
+
+> :information_source: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019.
 
 For specific tips about how to use Pester within the PowerShell repo, be sure to read this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
+
+### Updating your fork
+
+So you have forked one of the GitHub repos, cloned it, tried stuff, but never created a PR. And now that fork is six months behind its ancester. How to update it? I'll describe how to do this for the PowerShell repo, this works the same for the other repos.
+
+To update your GitHub fork, you will first update your local clone, and for that, you need to tell your local repository to which remote to look. 
+
+- See which remotes are configured for your local repo: `git remote -v`
+- If there is an entry with `https://github.com/PowerShell/PowerShell.git` in it, remember its name. It will usually be called 'upstream'
+- If there is no entry present with that url, add it by typing:
+`git remote add upstream https://github.com/PowerShell/PowerShell.git`
+- Make sure there is an entry 'origin' with the url of your own GitHub url: `https://github.com/PowerShell/PowerShell.git` 
+
+Make sure you have no uncommitted work on your branch. Stash or revert any uncommitted changes, and checkout to the master branch:
+
+- To stash changes, go `git stash`
+- To checkout master, do `git checkout master`
+
+Now we need to check for changes and pull them in.
+
+- Tell git to find out if there are changes in any of its remotes: `git fetch --all -p`
+- Tell git to rebase your local repo on the 'upstream' remote (replace the name 'upstream' if necessary):
+`git rebase upstream/master`
+
+Rebasing is the way to tell git to replay your work on top of the other changes that were merged to master in the mean time. So now we have pulled in all changes from the original repo into our clone locally. These changes need to be pushed to your GitHub fork.
+
+- Tell git to push local changes to origin: `git push` or `git push origin/master`.
+
+For more detailed instructions with screenshots, see [here](https://info.sapien.com/index.php/version-control/github-how-to-update-your-fork).
 
 ### Submitting your contribution 
 
@@ -391,22 +447,18 @@ You can create a PR from your own GitHub on the branch you created for you work 
 It helps to reference your original Issue where you asked for guidance what to work on, use a '#' sign and put the number of your Issue behind it.
 Fill any fields the PR requests from you.
 
-
 Once you have created a PR, the automated CI process will start to run.
 It will run ALL tests, on Windows, Linux and OSX.
 You can follow the status of the running tests in your PR.
 It takes around 20 minutes or so to finish.
 Every time you push a new commit to your branch that you created the PR from, it will trigger a new CI run.
 
-
 If you want to signal the maintainers that you are working on stuff, but are not ready yet, you can rename your PR to start with `WIP:` for Work In Progress.
-
 
 Every Pull Request in the PowerShell repo gets an assignee.
 A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question.
 Be patient - half of the work on the PowerShell repository is being done by volunteers, members of the community like you who do this in their spare time.
 And staff members of the PowerShell Team have all kinds of tasks assigned to them.
-
 
 Your work in the PR will be reviewed by two maintainers.
 They will ask you to change things here and there, maybe even about code you did not touch, _because, just like you, they love PowerShell_ and they want the best for the product.
@@ -414,5 +466,13 @@ If you don't know what they mean, just say so, no worries.
 They are all very helpful and friendly people.
 It can take a few weeks for the whole review/finetuning process to complete.
 
+Once all the CI checks turn green, and your reviewers are satisfied, your PR will be merged and your code is added to the codebase :-)
 
-Once all the CI checks turn green, and your reviewers are satisfied, your PR will be merged and your test is added to the codebase, and will be run every time anyone uses the CI system inside the repo :-)
+## Closing remarks
+
+I hope this blog will help you find your way contributing to PowerShell. 
+It's a great language, an even greater community. This offers all kinds of chances to learn new things, and meet new like minded people!
+Please feel free to reach out to me if you have questions. 
+You can [ping me on Twitter](https://www.twitter.com/Jawz_84), or drop me a message on Slack.
+
+A special thank you goes to Joel (Sallow) Francis for reviewing!
