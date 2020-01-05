@@ -1,7 +1,8 @@
 # PowerShell blog
+First try on bloggin' with GitHub.
 
-Recent Posts:
-
-- [blogtest](./blogtest)
+```Powershell
+Get-Help about_blogging
+```
 
 Find me on [Twitter](https://twitter.com/Jawz_84)
