@@ -1,4 +1,4 @@
-# Ten ways of contributing to PowerShell :octocat: OSS
+# Ten ways of contributing to PowerShell OSS
 
 ## Why this blog
 
@@ -36,7 +36,7 @@ If you would like a more thorough reasoning, I can recommend [Joel's blogpost on
 
 ### 1. File a bug
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 
@@ -68,7 +68,7 @@ Good places to share are:
 
 ### 2. Help confirm bugs
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 
@@ -86,12 +86,12 @@ If a bug is reproducible, it can be tested and fixed.
 If a bug is not reproducible, more research may be needed.
 You may be able to help the user who filed the bug with that.
 
-> :information_source: Consider 'Watching' the github repo.
+> Tip: Consider 'Watching' the github repo.
 You'll get a feel for what is going on daily.
 
 ### 3. Comment on language change proposals
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 
@@ -115,7 +115,7 @@ Comments are valuable for the community and the committee to make a balanced dec
 
 ### 4. Attend the monthly PowerShell community call
 
-> :memo: Requires
+> Requires
 > 
 > - A microphone and speakers
 > - You can even join anonymously if you like 
@@ -136,7 +136,7 @@ For example, if there is an RFC you have commented on, you can explain your view
 
 ### 5. Suggest an improvement
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 
@@ -155,7 +155,7 @@ In some cases it may be a good move to 'test' your idea against a few people fir
 
 ### 6. Contribute Help content
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 > - Knowledge of Markdown
@@ -170,7 +170,7 @@ In particular, more examples for cmdlets are always welcome.
 
 Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [contributing manual](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md) to get started.
 
-> :information_source: PowerShell Help is maintained for PowerShell versions 5.1 and higher. You may be asked to update help files for more than one version. 
+> Tip: PowerShell Help is maintained for PowerShell versions 5.1 and higher. You may be asked to update help files for more than one version. 
 
 To do small contributions like correcting typos, just navigate to that file, click the 'Edit' button, and GitHub will create a copy (fork) on your own GitHub for you.
 When you are satisfied with your changes, you can save them, and submit a pull request to the _staging_ branch of the PowerShell-Docs repository.
@@ -183,7 +183,7 @@ With more examples, less typos, clearer wording, PowerShell can be easier to lea
 
 ### 7. Write Pester tests
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
@@ -197,7 +197,7 @@ Within the PowerShell project, many parts are tested automatically.
 A big part of that is done with Pester.
 See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell).
 
-> :information_source: At the time of writing, Pester version 4.8.0 is used in the PowerShell project [`build.psm1` module](https://github.com/PowerShell/PowerShell/blob/a335063f1cb6596636031c2dc064fdf29924c5a7/build.psm1#L666).
+> Tip: At the time of writing, Pester version 4.8.0 is used in the PowerShell project [`build.psm1` module](https://github.com/PowerShell/PowerShell/blob/a335063f1cb6596636031c2dc064fdf29924c5a7/build.psm1#L666).
 This version pin will change in the future, as new versions of Pester become available.  
 
 Many Cmdlets could use better or more extensive tests to verify they keep working correctly if someone changes them in the future.
@@ -208,7 +208,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 ### 8. Write C# code for PowerShell
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
@@ -260,13 +260,13 @@ If you are not super familiar with C# these tips may help you:
 - When you are working on a Cmdlet, you can set _breakpoints_ to be able to step through the code
 - When you need information about where a certain method, property or variable comes from, use `F12` to [navigate to its definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-definition) 
 
-> :information_source: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019. The same principles work for the C# extension, as well as for Visual Studio.
+> Tip: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019. The same principles work for the C# extension, as well as for Visual Studio.
 
 See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo).
 
 ### 9. Write C# xUnit tests
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 > - Sign [Microsoft Contributor License Agreement](https://cla.opensource.microsoft.com/)
@@ -297,7 +297,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 
 ### 10. Write an RFC
 
-> :memo: Requires
+> Requires
 > 
 > - GitHub account
 > - Git and some knowledge of it
@@ -320,7 +320,7 @@ Examples of past RFC's:
 
 RFC's are discussed at the monthly community call, and are open for comments for about two months, or longer as the committee sees fit.
 
-> :information_source: The Committee and the PowerShell Team members are separate; currently all Committee members are either current or past members of the PowerShell Team, but not everyone on the team is on the Committee. 
+> Tip: The Committee and the PowerShell Team members are separate; currently all Committee members are either current or past members of the PowerShell Team, but not everyone on the team is on the Committee. 
 There is a desire to work out a process for adding community members to the Committee at some point in the future.
 
 ## Details about contributing to the PowerShell/PowerShell repo
@@ -342,7 +342,7 @@ Tests for built-in CmdLets are here:
 
 Tests can also be found by using a search tool like VSCode's `Ctrl+F`. Just search for the Cmdlet you are looking for, and filter for filenames with `*.tests.ps1`
 
-> :information_source: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
+> Tip: If you forget to branch before you start working, `git stash; git stash branch newbranchname` is super super handy.
 Also: <ohshitgit.com> for help after a git mishap.
 
 ### Alternative: develop within a container
@@ -389,7 +389,7 @@ On a docker container, it needs the `-NoSudo` switch).
 
 You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild`
 
-> :information_source: If you encounter weird build errors, just run `Start-PSBuild -Clean`.
+> Tip: If you encounter weird build errors, just run `Start-PSBuild -Clean`.
 This is generally a good idea every time you update your branch, or after a rebase.
 
 Now you could simply run `Start-PSPester` to kick off a build, and run ALL Pester tests.
@@ -406,7 +406,7 @@ To suppress new builds, you add the `-SkipTestToolBuild` switch:
 
 When writing and debugging your tests, remember that you can set breakpoints and step through your Pester code, this can help you find out where things are not going as they | Should -Be :-).
 
-> :information_source: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019.
+> Tip: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019.
 
 For specific tips about how to use Pester within the PowerShell repo, be sure to read this document as an addendum to the Pester documentation: <https://github.com/PowerShell/PowerShell/blob/master/docs/testing-guidelines/WritingPesterTests.md>
 
