@@ -7,13 +7,13 @@ The more links I followed, the more detailed and complex everything got.
 At that point I felt I was not ready to contribute.
 I did contribute anyway eventually.
 And I realised there may be more people willing to contribute, but don't know where to start, and there does not seem to be a guide of how to start contributing to PowerShell in an easy way.
-Also there are more ways to contribute apart from contributing C# code.
+Also, there are ways to contribute apart from contributing C# code.
 
 ## How
 
 You can contribute by lending your time and expertise.
-There are so many ways to do so.
-Blogging, speaking, teaching, sharing code, writing modules, helping others on forums/channels to name a few.
+There are so many ways to do so:
+Blogging, speaking, teaching, sharing code, writing modules, or helping others on forums/channels (to name a few).
 In this blog I want to focus on contributing to the PowerShell language directly.
 
 ## Where
@@ -23,7 +23,7 @@ I choose to list these three, because here you can contribute to PowerShell itse
 
 - Documentation and Get-Help files: <https://github.com/MicrosoftDocs/PowerShell-Docs>
 - Proposals about the language: <https://github.com/PowerShell/PowerShell-RFC>
-- Issues, code and tests: <https://github.com/PowerShell/PowerShell>
+- Engine & Language Issues, code and tests: <https://github.com/PowerShell/PowerShell>
 
 ## Why contribute
 
@@ -40,7 +40,7 @@ If you would like a more thorough reasoning, I can recommend [Joel's blogpost on
 > 
 > - GitHub account
 
-If you use PowerShell as your daily driver, or use it often on sideprojects, you may eventually run into something odd.
+If you use PowerShell as your daily driver, or use it often on side projects, you may eventually run into something odd.
 
 File that bug right here: <https://github.com/PowerShell/PowerShell/issues>
 
