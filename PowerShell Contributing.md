@@ -34,7 +34,7 @@ If you would like a more thorough reasoning, I can recommend [Joel's blogpost on
 
 ## Ten ways to contribute
 
-### 1. File a bug
+### 1. File a bug report
 
 > Requires
 > 
@@ -44,7 +44,7 @@ If you use PowerShell as your daily driver, or use it often on sideprojects, you
 
 File that bug right here: <https://github.com/PowerShell/PowerShell/issues>
 
-This is what you will be asked for when filing a bug:
+This is what you will be asked for when filing a bug report:
 
 - Make sure you are able to reproduce it on the [latest released version](https://github.com/PowerShell/PowerShell/releases)
 - Search the [existing issues](https://github.com/PowerShell/PowerShell/issues)
