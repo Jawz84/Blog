@@ -355,6 +355,7 @@ VSCode will connect to that container and you can work with it from there.
 You will need:
 
 - [Docker](https://www.docker.com/products/docker-desktop), configure a shared folder
+- Give the Docker VM more RAM than just the default 2048MB if you can spare it, it will give you a nicer experience.
 - VSCode [remote-development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
 Read more [here](https://code.visualstudio.com/docs/remote/remote-overview).
