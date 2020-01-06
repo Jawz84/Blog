@@ -201,8 +201,8 @@ See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell)
 This version pin will change in the future, as new versions of Pester become available.  
 
 Many Cmdlets could use better or more extensive tests to verify they keep working correctly if someone changes them in the future.
-So the Pester tests for CmdLets are kind of a safeguard against regression.
-When there are more/better tests for CmdLets, you can possibly prevent future bugs!
+So the Pester tests for Cmdlets are kind of a safeguard against regression.
+When there are more/better tests for Cmdlets, you can possibly prevent future bugs!
 
 See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo), especially the section on how to run tests.
 
@@ -240,9 +240,9 @@ This is because Cmdlets names in C# are declared like this:
 [Cmdlet(VerbsCommon.Get, "Host" /* abbreviated */ )]
 ```
 
-#### Similarities between advanced functions and C# CmdLets
+#### Similarities between advanced functions and C# Cmdlets
 
-There are quite a few similarities between PowerShell advanced functions and how CmdLets need to be written in C#.
+There are quite a few similarities between PowerShell advanced functions and how Cmdlets need to be written in C#.
 For example, the way parameters and parametersets are defined, and that there can be a `Begin`, `Process` and `End` block.
 
 When you have C# experience, but have never written code for PowerShell, you should see the SDK reference [here](https://docs.microsoft.com/en-us/powershell/scripting/developer/Cmdlet/writing-a-windows-powershell-Cmdlet?view=powershell-7) to learn about concepts and find examples.
@@ -250,7 +250,7 @@ When you have C# experience, but have never written code for PowerShell, you sho
 When you have little C# experience, but have written advanced PowerShell functions, you can still find your way.
 When reading through the code, your starting point should be the `[Cmdlet()]` Attribute.
 This is where parameters will be declared, just like in PowerShell.
-And you will notice C# CmdLets have `BeginProcessing`, `ProcessRecord` and `EndProcessing` instead of the `Begin`, `Process` and `End` block.
+And you will notice C# Cmdlets have `BeginProcessing`, `ProcessRecord` and `EndProcessing` instead of the `Begin`, `Process` and `End` block.
 After you have a little idea of what that looks like, find answers to questions that arise in the SDK linked above.
 
 #### Finding your way in the code
@@ -328,7 +328,7 @@ There is a desire to work out a process for adding community members to the Comm
 ### How to start
 
 - Create an issue in the PowerShell repo, where you state that you would like to contribute Pester tests
-- Ask the maintainers if there are any specific CmdLets that could use improved tests
+- Ask the maintainers if there are any specific Cmdlets that could use improved tests
 - Fork the PowerShell repository to your own GitHub
 - Clone your fork of the PowerShell repo to your local machine
 - Create a new Git branch for your work
@@ -336,7 +336,7 @@ There is a desire to work out a process for adding community members to the Comm
 All Pester tests can be found in this folder:  
   `.\test\powershell`
 
-Tests for built-in CmdLets are here:  
+Tests for built-in Cmdlets are here:  
   `.\test\powershell\Modules`
   Especially the folders named `Microsoft.PowerShell.*`
 
@@ -377,7 +377,7 @@ To run a test, you need to build the pwsh binaries first, and you need the test-
 Also note, if you run all tests, that's going to take some time.
 Good thing there is an easy way!
 
-In the base of the repository there is a module 'build.ps1', that has all kind of handy CmdLets in it for this kind of thing.
+In the base of the repository there is a module 'build.ps1', that has all kind of handy Cmdlets in it for this kind of thing.
 Load it like this:
 
 `Import-Module .\build.psm1`
