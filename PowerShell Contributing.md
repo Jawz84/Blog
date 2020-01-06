@@ -80,7 +80,7 @@ This is because when you first open an issue on the PowerShell project, the auto
 
 You can comment in the issue whether or not you could repro it, and on which version of PowerShell.
 Always try to reproduce a bug on the latest version of PowerShell.
-Make sure you read the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md) and the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/).
+Make sure you read the [FAQ](https://github.com/PowerShell/PowerShell/blob/master/docs/FAQ.md) and the [known issues](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-7).
 
 If a bug is reproducible, it can be tested and fixed.
 If a bug is not reproducible, more research may be needed.
@@ -168,18 +168,19 @@ In some cases it may be a good move to 'test' your idea against a few people fir
 You can contribute by writing, improving, or expanding help files for Get-Help.
 In particular, more examples for cmdlets are always welcome.
 
-Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [contributing manual](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md) to get started.
+Head over to the <https://github.com/MicrosoftDocs/Powershell-Docs> repo, and read their [Contributor guide](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/CONTRIBUTING.md) to get started.
 
 > Tip: PowerShell Help is maintained for PowerShell versions 5.1 and higher. You may be asked to update help files for more than one version. 
 
-To do small contributions like correcting typos, just navigate to that file, click the 'Edit' button, and GitHub will create a copy (fork) on your own GitHub for you.
+To do small contributions like correcting typos, just navigate to that file, click the 'Edit' button. 
+GitHub will create a copy (fork) on your own GitHub for you, where you can edit the file.
 When you are satisfied with your changes, you can save them, and submit a pull request to the _staging_ branch of the PowerShell-Docs repository.
 
 For bigger contributions, you are better off cloning your fork locally to your computer.
 This enables you to use VSCode and other editing tools.
 A guide on how to do that can be found [here](https://github.com/MicrosoftDocs/PowerShell-Docs/blob/staging/contributing/1-GET-STARTED.md#making-major-edits-to-existing-topics).
 
-With more examples, less typos, clearer wording, PowerShell can be easier to learn and use for everyone!
+With more examples, less typos and clearer wording, PowerShell can be easier to learn and use for everyone!
 
 ### 7. Write Pester tests
 
@@ -218,7 +219,8 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 > - An Integrated Development Environment that supports C#, like VSCode or Visual Studio
 > - C# knowledge
 
-When you solve an issue from the PowerShell/PowerShell repo by submitting code, you can make people's lives easier! 
+PowerShell as an engine and a language is entirely written in C#. 
+When you solve an issue from the PowerShell/PowerShell repo by submitting C# code, you can make people's lives easier! 
 
 Depending on your level of C# knowledge and experience, pick an issue that suits you, and let others know by commenting on the issue, that you would like to take it on.
 
@@ -232,7 +234,8 @@ You can use VSCode with the [C# extension](https://marketplace.visualstudio.com/
 #### Find code for a Cmdlet
 
 There is a lot of code in PowerShell.
-So where do you find the code you need to edit in order to solve the issue you picked? If you are are looking for the code for a specific Cmdlet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only \*.cs files, but you would not find it.
+So where do you find the code you need to edit in order to solve the issue you picked? 
+If you are are looking for the code for a specific Cmdlet, let's say `Get-Host`, you could search the codebase for 'Get-Host' and filter only \*.cs files, but you would not find it.
 You will find if you search for 'Get, "Host' and filter \*.cs files only.
 This is because Cmdlets names in C# are declared like this:
 
@@ -240,10 +243,13 @@ This is because Cmdlets names in C# are declared like this:
 [Cmdlet(VerbsCommon.Get, "Host" /* abbreviated */ )]
 ```
 
+Another way to find the the code for the Cmdlet you are looking for, is to search for a class with a name of the form `public class VerbNounCommand`. 
+So in our `Get-Host` example, that would be `public class GetHostCommand`.
+
 #### Similarities between advanced functions and C# Cmdlets
 
 There are quite a few similarities between PowerShell advanced functions and how Cmdlets need to be written in C#.
-For example, the way parameters and parametersets are defined, and that there can be a `Begin`, `Process` and `End` block.
+For example, the way parameters and parameter sets are defined, and that there can be a `Begin`, `Process` and `End` block.
 
 When you have C# experience, but have never written code for PowerShell, you should see the SDK reference [here](https://docs.microsoft.com/en-us/powershell/scripting/developer/Cmdlet/writing-a-windows-powershell-Cmdlet?view=powershell-7) to learn about concepts and find examples.
 
@@ -257,8 +263,9 @@ After you have a little idea of what that looks like, find answers to questions 
 
 If you are not super familiar with C# these tips may help you: 
 
-- When you are working on a Cmdlet, you can set _breakpoints_ to be able to step through the code
-- When you need information about where a certain method, property or variable comes from, use `F12` to [navigate to its definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-definition) 
+- When you are working on a Cmdlet, you can set _breakpoints_ to be able to step through the code (see tip about debugging below)
+- When you need information about where a certain method, property or variable comes from, use `F12` to [navigate to its definition](https://code.visualstudio.com/Docs/editor/editingevolved#_go-to-definition). 
+'Go to definition' is also available from the right-click context menu.
 
 > Tip: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019. The same principles work for the C# extension, as well as for Visual Studio.
 
@@ -279,7 +286,7 @@ See also [Details about contributing to the PowerShell/PowerShell repo](#Details
 Only a small portion of all tests in the PowerShell/PowerShell repo are xUnit tests.
 Most other tests are written in Pester.
 Be sure to contact the PowerShell Team if you want to contribute here.
-Most of the xUnit tests test internal PowerShell stuff.
+Most of the xUnit tests test internal PowerShell code or public APIs that are only accessible directly from the System.Managemet.Automation namespace.
 
 The xUnit tests can be found here: 
 <https://github.com/PowerShell/PowerShell/tree/master/test/xUnit>
@@ -377,14 +384,14 @@ To run a test, you need to build the pwsh binaries first, and you need the test-
 Also note, if you run all tests, that's going to take some time.
 Good thing there is an easy way!
 
-In the base of the repository there is a module 'build.ps1', that has all kind of handy Cmdlets in it for this kind of thing.
+In the base of the repository there is a module `build.psm1`, that has all kinds of handy Cmdlets in it for this kind of thing.
 Load it like this:
 
 `Import-Module .\build.psm1`
 
 (If you want to know which tools are inside, use `Get-Command -Module build`)
 
-The very fist time, you need to set up a few things.
+The very first time, you need to set up a few things.
 To do that, run `Start-PsBootstrap` (may need sudo/adminstrative privileges, depending on your system.
 On a docker container, it needs the `-NoSudo` switch).
 
@@ -405,7 +412,7 @@ To suppress new builds, you add the `-SkipTestToolBuild` switch:
 
 `Start-PSPester -Path .\test\powershell\Modules\Microsoft.PowerShell.Core\Get-Command.Tests.ps1 -SkipTestToolBuild`
 
-When writing and debugging your tests, remember that you can set breakpoints and step through your Pester code, this can help you find out where things are not going as they | Should -Be :-).
+When writing and debugging your tests, remember that you can set breakpoints and step through your Pester code, this can help you find out where things are not going as they `| Should -Be` :-).
 
 > Tip: If you want to learn more about VSCode debugging for PowerShell, you can read more [here on the Microsoft scripting blog](https://devblogs.microsoft.com/scripting/debugging-powershell-script-in-visual-studio-code-part-1/), or watch [this video](https://youtu.be/cSbIXmlkr8o) from Tyler Leonhardt at PSconfEU 2019.
 
@@ -413,17 +420,21 @@ For specific tips about how to use Pester within the PowerShell repo, be sure to
 
 ### Updating your fork
 
-So you have forked one of the GitHub repos, cloned it, tried stuff, but never created a PR. And now that fork is six months behind its ancester. How to update it? I'll describe how to do this for the PowerShell repo, this works the same for the other repos.
+So you have forked one of the GitHub repos, cloned it, tried stuff, but never created a PR. 
+And now that fork is six months behind its ancester. 
+How to update it? 
+I'll describe how to do this for the PowerShell repo, this works the same for the other repos.
 
-To update your GitHub fork, you will first update your local clone, and for that, you need to tell your local repository to which remote to look. 
+To update your GitHub fork, you will first update your local clone, and for that, you need to tell your local repository which remote to look to.
 
 - See which remotes are configured for your local repo: `git remote -v`
 - If there is an entry with `https://github.com/PowerShell/PowerShell.git` in it, remember its name. It will usually be called 'upstream'
 - If there is no entry present with that url, add it by typing:
 `git remote add upstream https://github.com/PowerShell/PowerShell.git`
-- Make sure there is an entry 'origin' with the url of your own GitHub url: `https://github.com/PowerShell/PowerShell.git` 
+- Make sure there is an entry 'origin' with the url of your own GitHub url: `https://github.com/YOUR_GITHUB_NAME/PowerShell.git` 
 
-Make sure you have no uncommitted work on your branch. Stash or revert any uncommitted changes, and checkout to the master branch:
+Make sure you have no uncommitted work on your branch. 
+Stash or revert any uncommitted changes, and checkout to the master branch:
 
 - To stash changes, go `git stash`
 - To checkout master, do `git checkout master`
@@ -434,9 +445,11 @@ Now we need to check for changes and pull them in.
 - Tell git to rebase your local repo on the 'upstream' remote (replace the name 'upstream' if necessary):
 `git rebase upstream/master`
 
-Rebasing is the way to tell git to replay your work on top of the other changes that were merged to master in the mean time. So now we have pulled in all changes from the original repo into our clone locally. These changes need to be pushed to your GitHub fork.
+Rebasing is the way to tell git to replay your work on top of the other changes that were merged to master in the mean time. 
+So now we have pulled in all changes from the original repo into our clone locally. 
+These changes need to be pushed to your GitHub fork.
 
-- Tell git to push local changes to origin: `git push` or `git push origin/master`.
+- Tell git to push local changes to origin: `git push` or `git push origin/master`
 
 For more detailed instructions with screenshots, see [here](https://info.sapien.com/index.php/version-control/github-how-to-update-your-fork).
 
