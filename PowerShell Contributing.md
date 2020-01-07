@@ -395,10 +395,15 @@ The very first time, you need to set up a few things.
 To do that, run `Start-PsBootstrap` (may need sudo/adminstrative privileges, depending on your system.
 On a docker container, it needs the `-NoSudo` switch).
 
-You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild`
+You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild -Clean`
 
-> Tip: If you encounter weird build errors, just run `Start-PSBuild -Clean`.
-This is generally a good idea every time you update your branch, or after a rebase.
+> Tip: When to run `Start-PSBuild` with the `-Clean` switch.
+> The `-Clean` switch unnecessary most of the time. Use it:
+> 
+> - When you build for the _first time_ (on a new system for instance)
+> - After rebasing or merging in new changes from the main PowerShell repo
+> - Any time you're needing to update .resx files with new strings (alternatively: build with the `-ResGen` switch)
+> - If you are getting odd errors :-)
 
 Now you could simply run `Start-PSPester` to kick off a build, and run ALL Pester tests.
 This would take some time, and this is still not what you want to do when writing extra tests, or improving existing ones.
@@ -459,15 +464,20 @@ Do small git commits while you work, and don't forget to git push the work on yo
 When you are satisfied with your work, you can create a Pull Request.
 You can create a PR from your own GitHub on the branch you created for you work on this.
 It helps to reference your original Issue where you asked for guidance what to work on, use a '#' sign and put the number of your Issue behind it.
+For example, if your original issue was numbered #23401, you could start the PR description with 'Closes #23401'.
+GitHub recognizes this word 'Closes #0000' pattern and actually closes this issue for you when the PR is merged. 
+Some other words that GitHub recognizes and have the same effect are: 'fixes' and 'resolves'. 
+See more [here](https://help.github.com/en/github/managing-your-work-on-github/closing-issues-using-keywords).
 Fill any fields the PR requests from you.
 
-Once you have created a PR, the automated CI process will start to run.
+Once you have created a PR, the [automated Continuous Integration (CI)](https://github.blog/2015-09-03-protected-branches-and-required-status-checks/) process will start to run.
 It will run ALL tests, on Windows, Linux and OSX.
 You can follow the status of the running tests in your PR.
 It takes around 20 minutes or so to finish.
 Every time you push a new commit to your branch that you created the PR from, it will trigger a new CI run.
 
 If you want to signal the maintainers that you are working on stuff, but are not ready yet, you can rename your PR to start with `WIP:` for Work In Progress.
+When you create a new PR, GitHub offers this as a drop-down option on the Submit button.
 
 Every Pull Request in the PowerShell repo gets an assignee.
 A person who you can ask for help when something is not working properly (sometimes CI can be glitchy and fail on something else than your code), or if you just have a question.
@@ -480,13 +490,15 @@ If you don't know what they mean, just say so, no worries.
 They are all very helpful and friendly people.
 It can take a few weeks for the whole review/finetuning process to complete.
 
-Once all the CI checks turn green, and your reviewers are satisfied, your PR will be merged and your code is added to the codebase :-)
+Once all the CI checks turn green, and your reviewers are satisfied, your PR will be merged and your code is added to the codebase at the next public release. :-)
+Releases are roughly every month, so it may be a few weeks before merged code actually becomes publicly available in a released version.
 
 ## Closing remarks
 
 I hope this blog will help you find your way contributing to PowerShell. 
-It's a great language, an even greater community. This offers all kinds of chances to learn new things, and meet new like minded people!
+It's a great language, and an even greater community. 
+This offers all kinds of chances to learn new things, and meet new like-minded people!
 Please feel free to reach out to me if you have questions. 
-You can [ping me on Twitter](https://www.twitter.com/Jawz_84), or drop me a message on Slack.
+You can [ping me on Twitter](https://www.twitter.com/Jawz_84), or drop me a message on PowerShell.Slack.com. @jawz_84.
 
-A special thank you goes to Joel (Sallow) Francis for reviewing!
+A special thank you goes to Joel (Sallow) Francis and Jelle de Graaf for reviewing!
