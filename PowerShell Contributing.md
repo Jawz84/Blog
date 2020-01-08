@@ -1,4 +1,4 @@
-# Ten ways of contributing to PowerShell OSS
+# Ten ways of contributing to PowerShell on GitHub
 
 ## Why this blog
 
@@ -14,7 +14,7 @@ Also, there are ways to contribute apart from contributing C# code.
 You can contribute by lending your time and expertise.
 There are so many ways to do so:
 Blogging, speaking, teaching, sharing code, writing modules, or helping others on forums/channels (to name a few).
-In this blog I want to focus on contributing to the PowerShell language directly.
+In this blog I want to focus on contributing to the PowerShell language directly, on GitHub.
 
 ## Where
 
@@ -378,11 +378,7 @@ Now your environment should be all set.
 - You can now load the `build.psm1` module with `Import-Module ./build.psm1` 
 - In some cases you may need to run `Start-PSBuild -Clean`
 
-### How to run a test
-
-To run a test, you need to build the pwsh binaries first, and you need the test-tool.
-Also note, if you run all tests, that's going to take some time.
-Good thing there is an easy way!
+### How to build
 
 In the base of the repository there is a module `build.psm1`, that has all kinds of handy Cmdlets in it for this kind of thing.
 Load it like this:
@@ -395,7 +391,8 @@ The very first time, you need to set up a few things.
 To do that, run `Start-PsBootstrap` (may need sudo/adminstrative privileges, depending on your system.
 On a docker container, it needs the `-NoSudo` switch).
 
-You also need to build the pwsh binaries for the tests to run against: `Start-PsBuild -Clean`
+Now use this command to build the pwsh binaries: `Start-PsBuild -Clean`.
+If you've built the project before, you can just run `Start-PsBuild`.
 
 > Tip: When to run `Start-PSBuild` with the `-Clean` switch.
 > The `-Clean` switch unnecessary most of the time. Use it:
@@ -405,7 +402,15 @@ You also need to build the pwsh binaries for the tests to run against: `Start-Ps
 > - Any time you're needing to update .resx files with new strings (alternatively: build with the `-ResGen` switch)
 > - If you are getting odd errors :-)
 
-Now you could simply run `Start-PSPester` to kick off a build, and run ALL Pester tests.
+To run the PowerShell version you have just built, you can run `Start-DevPowerShell`, or find the pwsh executable by running `Get-PsOutput`.
+
+### How to run a test
+
+To run a test, you need to [build the pwsh binaries first](#How-to-build), (and you need the test-tool, but that is done automatically).
+Also note, if you run all tests, that's going to take some time.
+Good thing there is an easy way!
+
+You could simply run `Start-PSPester` to kick off a test-tool build, and run ALL Pester tests.
 This would take some time, and this is still not what you want to do when writing extra tests, or improving existing ones.
 So what do we do instead? We tell `Start-PSPester` which testfile we want to run:
 
@@ -447,16 +452,27 @@ Stash or revert any uncommitted changes, and checkout to the master branch:
 Now we need to check for changes and pull them in.
 
 - Tell git to find out if there are changes in any of its remotes: `git fetch --all -p`
-- Tell git to rebase your local repo on the 'upstream' remote (replace the name 'upstream' if necessary):
-`git rebase upstream/master`
+- Tell git to pull in changes from the 'upstream' remote (replace the name 'upstream' if necessary):
+`git pull upstream/master`
 
-Rebasing is the way to tell git to replay your work on top of the other changes that were merged to master in the mean time. 
 So now we have pulled in all changes from the original repo into our clone locally. 
 These changes need to be pushed to your GitHub fork.
 
 - Tell git to push local changes to origin: `git push` or `git push origin/master`
+- You will need to run a _clean_ build after this in order to continue work, as explained [here](#How-to-build).
 
 For more detailed instructions with screenshots, see [here](https://info.sapien.com/index.php/version-control/github-how-to-update-your-fork).
+
+#### Rebase
+
+Some manuals will say `rebase` instead of `pull`.
+Rebasing is the way to tell git to replay your work on top of the other changes that were merged to master in the mean time. 
+As long as you are just pulling changes to the master branch and not your working branch, you usually won't need to do `git rebase upstream/master` instead of `git pull upstream/master`. 
+After a rebase, you will almost always need to `git push --force-with-lease`, otherwise the changes will be rejected due to the divergent histories.
+
+> Tip: If you have made a mess of your master branch, you can get it back to the current upstream "clean" state with `git reset --hard upstream/master`. 
+WARNING: this will completely replace your current working branch with what is there on the targeted branch, so be sure that's what you want first; there's no undo for that operation.
+See also: <ohshitgit.com>.
 
 ### Submitting your contribution 
 
