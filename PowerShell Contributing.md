@@ -23,7 +23,12 @@ I choose to list these three, because here you can contribute to PowerShell itse
 
 - Documentation and Get-Help files: <https://github.com/MicrosoftDocs/PowerShell-Docs>
 - Proposals about the language: <https://github.com/PowerShell/PowerShell-RFC>
-- Engine & Language Issues, code and tests: <https://github.com/PowerShell/PowerShell>
+- Engine & language issues, code and tests: <https://github.com/PowerShell/PowerShell>
+
+## TL/DR;
+
+- I list [ten ways how you can contribute](#Ten-ways-to-contribute) to PowerShell on GitHub
+- I share [details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo)
 
 ## Why contribute
 
@@ -76,7 +81,7 @@ Confirming bugs is going through recent bug report issues and trying to reproduc
 This helps assess if a reported bug is really a bug or not.
 
 A lot of new bug reports are going to have the ['Issue-Discussion'](https://github.com/PowerShell/PowerShell/issues?q=is%3Aissue+is%3Aopen+label%3AIssue-Discussion) label, instead of 'Issue-Bug'. 
-This is because when you first open an issue on the PowerShell project, the automatic label for a bug report is Issue-Discussion, which typically won't be changed until a maintainer or collaborator has seen that the bug has been confirmed / reproduced by others or can reproduce it themselves.
+This is because when you first open an issue on the PowerShell project, the automatic label for a bug report is 'Issue-Discussion', which typically won't be changed until a maintainer or collaborator has seen that the bug has been confirmed / reproduced by others or can reproduce it themselves.
 
 You can comment in the issue whether or not you could repro it, and on which version of PowerShell.
 Always try to reproduce a bug on the latest version of PowerShell.
@@ -95,6 +100,10 @@ You'll get a feel for what is going on daily.
 > 
 > - GitHub account
 
+[Request For Comments](https://github.com/PowerShell/PowerShell-RFC) (RFC's) are proposals about a change in PowerShell.
+By commenting on an RFC, you can influence how an idea is going to be implemented, if at all.
+Comments are valuable for the community and the committee to make a balanced decision, weighing all voices.
+
 The following things currently require an RFC:
 
 - Large-scale changes to cmdlets
@@ -109,9 +118,6 @@ At this point, the PowerShell Committee will make the decision to approve or rej
 The RFC may also be discussed in the monthly call if there is reason to.
 
 The full process is explained here: <https://github.com/PowerShell/powershell-rfc/blob/master/RFC0000-RFC-Process.md>
-
-By commenting on an RFC, you can influence how an idea is going to be implemented, if at all.
-Comments are valuable for the community and the committee to make a balanced decision, weighing all voices.
 
 ### 4. Attend the monthly PowerShell community call
 
@@ -195,17 +201,20 @@ With more examples, less typos and clearer wording, PowerShell can be easier to 
 > - Pester knowledge 
 
 Within the PowerShell project, many parts are tested automatically.
-A big part of that is done with Pester.
-See [here](https://github.com/PowerShell/PowerShell/tree/master/test/powershell).
+A big part of that is done with [Pester](https://github.com/PowerShell/PowerShell/tree/master/test/powershell).
 
 > Tip: At the time of writing, Pester version 4.8.0 is used in the PowerShell project [`build.psm1` module](https://github.com/PowerShell/PowerShell/blob/a335063f1cb6596636031c2dc064fdf29924c5a7/build.psm1#L666).
 This version pin will change in the future, as new versions of Pester become available.  
 
 Many Cmdlets could use better or more extensive tests to verify they keep working correctly if someone changes them in the future.
 So the Pester tests for Cmdlets are kind of a safeguard against regression.
+
+As always, if you want to start working on something in the repo, signal the maintainers what your intentions are, by saying which task you want to take on in the relevant issue. 
+If no issue exists for the work you want to do, create one first.
+
 When there are more/better tests for Cmdlets, you can possibly prevent future bugs!
 
-See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo), especially the section on how to run tests.
+See also [Details about contributing to the PowerShell/PowerShell repo](#Details-about-contributing-to-the-PowerShellPowerShell-repo), especially the section on [how to run tests](#How-to-run-a-test).
 
 ### 8. Write C# code for PowerShell
 
